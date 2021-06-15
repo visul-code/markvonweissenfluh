@@ -6,10 +6,10 @@ import Footer from "./Footer";
 import { mediaQueries } from "../utils/MediaQuerie";
 
 const SiteRoot = styled.div`
-  margin: 80px 0px 0px 0px;
+  margin: 120px 0px 0px 0px;
 
   ${mediaQueries.lessThan("tablet")`
-margin: 80px 0;
+margin: 120px 0;
 
 `}
 `;

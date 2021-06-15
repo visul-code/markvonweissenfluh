@@ -1,9 +1,15 @@
 export const themes = {
   default: {
     colors: {
-      background: "white",
+      background: "#E5E5E5",
+      primary: "#847D54",
+      text: "#000000",
+      textAlt: "#847d54",
     },
-    fonts: { primary: "Helvetica Neue, Arial, sans-serif;" },
+    fonts: {
+      primary: "Roboto, sans-serif",
+      secondary: "Playfair Display, serif",
+    },
   },
 
   dark: {

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { GlobalStateContext } from "../global/Context";
+import { mediaQueries } from "../utils/MediaQuerie";
 
 const StyledBurger = styled.button`
   width: 30px;
@@ -13,6 +14,10 @@ const StyledBurger = styled.button`
   font: inherit;
   cursor: pointer;
   outline: inherit;
+
+  ${mediaQueries.greaterThan("tablet")`
+  display: none;
+  `}
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
