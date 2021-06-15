@@ -28,6 +28,11 @@ p{
   line-height: 3rem;
 }
 
+.subtitle {
+    font-size: 3.5rem;
+    line-height: 4.5rem;
+  }
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
