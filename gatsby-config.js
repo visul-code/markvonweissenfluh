@@ -62,13 +62,22 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-omni-font-loader`,
       options: {
-        fonts: [`IPlayfair Display, Roboto`],
-        display: "swap",
+        mode: `render-blocking`,
+        preconnect: [`https://fonts.googleapis.com`],
+        web: [
+          {
+            name: `Roboto`,
+            file: `https://fonts.googleapis.com/css2?family=Roboto&display=swap`,
+          },
+          {
+            name: `Playfair Display`,
+            file: `https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap`,
+          },
+        ],
       },
     },
-
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -78,48 +87,6 @@ module.exports = {
         gfm: true,
         // Plugins configs
         plugins: [],
-      },
-    },
-    {
-      /* Include plugin */
-      resolve: "gatsby-omni-font-loader",
-
-      /* Plugin options */
-      options: {
-        /* Font loading mode */
-        mode: "render-blocking",
-
-        /* Enable font loading listener to handle FOUT */
-        enableListener: true,
-
-        /* Preconnect URL-s. This example is for Google Fonts */
-        preconnect: ["https://fonts.google.com"],
-
-        /* Self-hosted fonts config. Add font files and font CSS files to "static" folder */
-        custom: [
-          {
-            /* Exact name of the font as defied in @font-face CSS rule */
-            name: ["Font Awesome 5 Brands", "Font Awesome 5 Free"],
-            /* Path to the font CSS file inside the "static" folder with @font-face definition */
-            file: "/fonts/fontAwesome/css/all.min.css",
-          },
-        ],
-
-        /* Web fonts. File link should point to font CSS file. */
-        web: [
-          {
-            /* Exact name of the font as defied in @font-face CSS rule */
-            name: "Roboto",
-            /* URL to the font CSS file with @font-face definition */
-            file: "https://fonts.googleapis.com/css2?family=Roboto",
-          },
-          {
-            /* Exact name of the font as defied in @font-face CSS rule */
-            name: "Playfair Display",
-            /* URL to the font CSS file with @font-face definition */
-            file: "https://fonts.googleapis.com/css2?family=Playfair+Display",
-          },
-        ],
       },
     },
   ],
