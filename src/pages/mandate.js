@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import Container from "../components/Container";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import { mediaQueries } from "../utils/MediaQuerie";
 const MandatWrapper = styled.div`
   section {
     flex-direction: column;
@@ -13,6 +13,12 @@ const MandatWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2rem;
+
+    ${mediaQueries.lessThan("tablet")`
+  grid-template-columns: 1fr ;
+
+
+`}
   }
 `;
 

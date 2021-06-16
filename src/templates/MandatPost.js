@@ -11,6 +11,21 @@ const MandatPostWrapper = styled.div`
   section {
     flex-direction: column;
   }
+
+  .slider {
+    /*     margin-left: 3rem;
+    margin-right: 3rem; */
+
+    .slick-next {
+      right: 25px;
+      top: 90%;
+    }
+    .slick-prev {
+      left: 25px;
+      z-index: 2;
+      top: 90%;
+    }
+  }
 `;
 
 const MandatPost = ({ data }) => {
@@ -18,7 +33,7 @@ const MandatPost = ({ data }) => {
     dots: true,
     infinite: true,
     speed: 1000,
-
+    arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
   };

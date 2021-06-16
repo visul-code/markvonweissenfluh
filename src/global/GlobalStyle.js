@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import "normalize.css";
+import { mediaQueries } from "../utils/MediaQuerie";
 
 const GlobalStyle = createGlobalStyle`
 html, body{
@@ -15,11 +16,17 @@ h1,h2,h3,h4,h5,h6{
 h1{
   font-size: 8rem;
   font-weight: 400;
+  ${mediaQueries.lessThan("tablet")`
+  font-size: 4rem;
+  `}
 }
 h2{
   font-size: 4.5rem;
   font-weight: 400;
   color: ${({ theme }) => theme.colors.primary};
+  ${mediaQueries.lessThan("tablet")`
+  font-size: 2.4rem;
+  `}
 }
 
 p, address{
@@ -29,12 +36,16 @@ p, address{
 }
 
 address{
-  font-style: normal;
+  font-style: normal; 
 }
 
 .subtitle {
     font-size: 3.5rem;
     line-height: 4.5rem;
+    ${mediaQueries.lessThan("tablet")`
+  font-size: 2.4rem;
+  line-height: 3.0rem;
+  `}
   }
 
 * {

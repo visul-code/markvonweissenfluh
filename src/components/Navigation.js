@@ -1,22 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import Hamburger from "./Hamburger";
 import MobileMenu from "../components/MobileMenu";
 import { StaticImage } from "gatsby-plugin-image";
 import { mediaQueries } from "../utils/MediaQuerie";
-
-const StyledLink = styled((props) => <Link {...props} />)`
-  color: ${({ theme }) => theme.colors.text};
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 300;
-  margin-right: 5rem;
-
-  :hover {
-    color: ${({ theme }) => theme.colors.textAlt};
-  }
-`;
+import { RenderLinksDesktop } from "../components/RenderLinks";
 
 const NavigationWrapper = styled.nav`
   position: fixed;
@@ -34,14 +23,14 @@ const NavigationWrapper = styled.nav`
 
   ${mediaQueries.lessThan("tablet")`
   padding: 0 2rem;
-  width: 100%;
+
   
     `}
 
   .logo-wrapper {
     flex: 1;
   }
-  .link-wrapper {
+  .link-wrapper-desktop {
     flex: 1.5;
     display: flex;
     ${mediaQueries.lessThan("tablet")`
@@ -64,31 +53,20 @@ const Navigation = ({ location }) => {
   return (
     <NavigationWrapper>
       <div className="logo-wrapper">
-        <StyledLink to="/">
+        <Link to="/">
           <StaticImage
             src="../images/Logo_schwarz.png"
             alt="Logo von Weissenfluh"
             placeholder="none"
             height={60}
           />
-        </StyledLink>
+        </Link>
       </div>
 
       <MobileMenu />
 
-      <div className="link-wrapper">
-        <StyledLink activeClassName="active" to="/uebermich">
-          Über mich
-        </StyledLink>
-        <StyledLink activeClassName="active" to="/mandate">
-          Mandate
-        </StyledLink>
-        <StyledLink activeClassName="active" to="/partner">
-          Partner
-        </StyledLink>
-        <StyledLink activeClassName="active" to="/kontakt">
-          Kontakt
-        </StyledLink>
+      <div className="link-wrapper-desktop">
+        <RenderLinksDesktop />
       </div>
 
       <Hamburger />

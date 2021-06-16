@@ -2,14 +2,11 @@ import { graphql } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import Container from "../components/Container";
+import { mediaQueries } from "../utils/MediaQuerie";
+
 const PartnerWrapper = styled.div`
   section {
     flex-direction: column;
-  }
-
-  .subtitle {
-    font-size: 3.5rem;
-    line-height: 4.5rem;
   }
 
   .partner-wrapper {
@@ -18,6 +15,10 @@ const PartnerWrapper = styled.div`
     grid-template-rows: auto;
     grid-row-gap: 4rem;
     grid-column-gap: 4rem;
+
+    ${mediaQueries.lessThan("tablet")`
+    grid-template-columns: 1fr;
+`}
 
     .content {
       font-size: 2rem;

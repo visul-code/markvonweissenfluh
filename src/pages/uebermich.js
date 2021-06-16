@@ -3,6 +3,8 @@ import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 import Container from "../components/Container";
+import { mediaQueries } from "../utils/MediaQuerie";
+
 const AboutWrapper = styled.div`
   section {
     flex-direction: column;
@@ -13,6 +15,13 @@ const AboutWrapper = styled.div`
     display: grid;
     grid-template-columns: 500px 1fr;
     grid-template-rows: 1fr;
+
+    ${mediaQueries.lessThan("tablet")`
+
+display: flex;
+flex-direction: column;
+
+`}
 
     .image {
       margin: 0 3rem;
@@ -27,6 +36,12 @@ const AboutWrapper = styled.div`
     .quote-text {
       column-count: 2;
       column-gap: 10rem;
+      ${mediaQueries.lessThan("tablet")`
+
+column-count: 1;
+column-gap: 0;
+
+`}
       p {
         margin: 0;
       }

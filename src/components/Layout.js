@@ -7,7 +7,7 @@ import { mediaQueries } from "../utils/MediaQuerie";
 import { motion, AnimatePresence } from "framer-motion";
 const SiteRoot = styled.div`
   margin: 120px 0px 0px 0px;
-
+  overflow: hidden;
   ${mediaQueries.lessThan("tablet")`
 margin: 120px 0;
 

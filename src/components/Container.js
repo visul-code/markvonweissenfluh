@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { mediaQueries } from "../utils/MediaQuerie";
 
 const ContainerWrapper = styled.section`
   display: flex;
@@ -9,6 +10,12 @@ const ContainerWrapper = styled.section`
   margin: auto;
   padding: 0 60px;
   box-sizing: border-box;
+
+  ${mediaQueries.lessThan("tablet")`
+
+padding: 0 1rem;
+
+`}
 `;
 
 const Container = ({ props, children }) => {
