@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 import { mediaQueries } from "../utils/MediaQuerie";
-
+import { motion, AnimatePresence } from "framer-motion";
 const SiteRoot = styled.div`
   margin: 120px 0px 0px 0px;
 
@@ -15,6 +15,7 @@ margin: 120px 0;
 `;
 
 const Layout = ({ children, location }) => {
+  console.log(location);
   return (
     <SiteRoot id="top">
       <Helmet
@@ -25,8 +26,28 @@ const Layout = ({ children, location }) => {
         <link rel="preconnect" href="https://datocms-assets.com" />
       </Helmet>
       <Navigation location={location} />
-
-      {children}
+      <AnimatePresence
+        exitBeforeEnter
+        onExitComplete={() => {
+          if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0 });
+          }
+        }}
+      >
+        <motion.main
+          key={location.pathname}
+          initial={{ opacity: 0, x: -200 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 200 }}
+          transition={{
+            mass: 0.35,
+            stiffness: 75,
+            duration: 0.8,
+          }}
+        >
+          {children}
+        </motion.main>
+      </AnimatePresence>
       <Footer />
     </SiteRoot>
   );

@@ -22,10 +22,14 @@ h2{
   color: ${({ theme }) => theme.colors.primary};
 }
 
-p{
+p, address{
   font-size: 2rem;
   font-weight: 300;
   line-height: 3rem;
+}
+
+address{
+  font-style: normal;
 }
 
 .subtitle {

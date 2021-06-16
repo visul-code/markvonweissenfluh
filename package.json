@@ -16,6 +16,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.12.0",
     "dotenv": "^10.0.0",
+    "framer-motion": "^4.1.17",
     "gatsby": "^3.7.1",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-canonical-urls": "^3.7.1",

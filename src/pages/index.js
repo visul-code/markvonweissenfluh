@@ -10,8 +10,8 @@ const IndexWrapper = styled.div`
 const IndexPage = () => {
   return (
     <IndexWrapper>
-      <h1>THIS IS MY GATSBY BOILERPLATE</h1>
-      <h3>time to build something </h3>
+      <h1>Willkommen</h1>
+      <p>Diese seite ist noch zu gestalten</p>
     </IndexWrapper>
   );
 };
