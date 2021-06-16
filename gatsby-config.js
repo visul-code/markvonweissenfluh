@@ -69,7 +69,7 @@ module.exports = {
         web: [
           {
             name: `Roboto`,
-            file: `https://fonts.googleapis.com/css2?family=Roboto&display=swap`,
+            file: `https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap`,
           },
           {
             name: `Playfair Display`,
