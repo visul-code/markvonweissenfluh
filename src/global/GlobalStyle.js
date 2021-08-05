@@ -53,6 +53,13 @@ address{
   `}
   }
 
+  .paragraph{
+    font-size: 2rem;
+  font-weight: 300;
+  line-height: 3rem;
+  white-space: pre-line;
+  }
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

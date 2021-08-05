@@ -44,13 +44,15 @@ const MandatPost = ({ data }) => {
       <Slider className="slider" {...settings}>
         {data.datoCmsMandat.gallery.map((e, index) => {
           const image = getImage(e.gatsbyImageData);
-          return <GatsbyImage image={image} />;
+          return <GatsbyImage key={index} alt="Bild Mandat" image={image} />;
         })}
       </Slider>
       <Container>
         <h1>{data.datoCmsMandat.title}</h1>
-        <p className="subtitle">{data.datoCmsMandat.subtitle}</p>
-        <div
+
+     {data.datoCmsMandat.subtitle == "" ? null :        <p className="subtitle">{data.datoCmsMandat.subtitle}</p>}
+ 
+        <div className="paragraph"
           dangerouslySetInnerHTML={{
             __html:
               data.datoCmsMandat.descriptionNode.childrenMarkdownRemark[0].html,
