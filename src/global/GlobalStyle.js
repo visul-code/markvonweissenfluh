@@ -29,6 +29,11 @@ h2{
   `}
 }
 
+a{     text-decoration: underline 2px solid
+        ${({ theme }) => theme.colors.primary};
+      text-underline-offset: 0.5rem;
+      color: inherit;}
+
 p, address{
   font-size: 2rem;
   font-weight: 300;

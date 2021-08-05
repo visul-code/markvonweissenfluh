@@ -1,38 +1,76 @@
 import React from "react";
 import styled from "styled-components";
 import Container from "./Container";
+import { StaticQuery, graphql } from "gatsby"
+
+
 const FooterWrapper = styled.div`
   margin: 7rem 0;
 
+
+section{
+  justify-content: space-around;
+}
+
   .address-block {
-    a {
-      text-decoration: underline 2px solid
-        ${({ theme }) => theme.colors.primary};
-      text-underline-offset: 0.5rem;
-      color: inherit;
-    }
+    white-space: pre-line
+
   }
 `;
 
-const Footer = () => {
+const Footer = ({data}) => {
+
   return (
     <FooterWrapper>
       <Container>
+
+      <StaticQuery
+      query={graphql`
+      query FooterQuery {
+        datoCmsKontakt {
+      telefon
+          email
+          adresseGeschFtNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+      
+      `}
+      render={data => (
+
+     
+<>
+{console.log(data)}
         <address className="address-block">
-          <b> ADVERA Advisory & Consulting GmbH</b> <br />
-          Bolligenstrasse 94
-          <br />
-          CH - 3065 Bolligen bei Bern
-          <br />
-          <a href="tel:+41 31 311 43 43"> T: +41 31 311 43 43</a> <br />
-          <a href="mailto: contact@vonweissenfluh.com">
-            contact@vonweissenfluh.com
+   
+          <div dangerouslySetInnerHTML={{__html: data.datoCmsKontakt.adresseGeschFtNode.childMarkdownRemark.html}}/>
+
+      
+      
+          <a href={`tel:${data.datoCmsKontakt.telefon}`}> T: {data.datoCmsKontakt.telefon}</a> <br />
+          <a href={`mailto:${data.datoCmsKontakt.email}`}>
+            {data.datoCmsKontakt.email}
           </a>
           <br />
         </address>
-      </Container>
+
+        <p>
+  <a>Disclaimer</a> <br/>
+  <a>Impressum</a> <br/>
+  <a href="https://ch.linkedin.com/">LinkedIn</a>
+        </p>
+        </>
+      )}
+    
+    />
+  
+    </Container>
     </FooterWrapper>
   );
 };
 
 export default Footer;
+
