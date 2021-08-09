@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import SEO from "../components/seo";
 
 const IndexWrapper = styled.div`
   display: flex;
@@ -11,6 +12,7 @@ const IndexWrapper = styled.div`
 const IndexPage = () => {
   return (
     <IndexWrapper>
+      <SEO/>
       <h1>Willkommen</h1>
       <p>Diese seite ist noch zu gestalten</p>
     </IndexWrapper>
