@@ -37,13 +37,13 @@ module.exports = {
       },
     },
 
-    {
+/*     {
       resolve: "gatsby-plugin-sitemap",
            options: {
         output: "/",
         resolveSiteUrl: () => siteConfig.siteUrl,
       }, 
-    },
+    }, */
     {
       resolve: "gatsby-plugin-canonical-urls",
       options: {
