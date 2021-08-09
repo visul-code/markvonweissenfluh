@@ -12,7 +12,7 @@ const IndexWrapper = styled.div`
 const IndexPage = () => {
   return (
     <IndexWrapper>
-      <SEO/>
+      <SEO titleTemplate="Willkommen"/>
       <h1>Willkommen</h1>
       <p>Diese seite ist noch zu gestalten</p>
     </IndexWrapper>

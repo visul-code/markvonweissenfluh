@@ -43,7 +43,7 @@ const Footer = ({data}) => {
 
      
 <>
-{console.log(data)}
+
         <address className="address-block">
    
           <div dangerouslySetInnerHTML={{__html: data.datoCmsKontakt.adresseGeschFtNode.childMarkdownRemark.html}}/>

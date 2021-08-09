@@ -1,11 +1,12 @@
 import { graphql } from "gatsby";
-import React from "react";
+import React, {Fragment} from "react";
 import styled from "styled-components";
 import Container from "../components/Container";
 import Slider from "react-slick";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import SEO from "../components/seo";
 
 const MandatPostWrapper = styled.div`
   section {
@@ -38,28 +39,29 @@ const MandatPost = ({ data }) => {
     slidesToScroll: 1,
   };
 
-  console.log(data);
-  return (
-    <MandatPostWrapper>
-      <Slider className="slider" {...settings}>
-        {data.datoCmsMandat.gallery.map((e, index) => {
-          const image = getImage(e.gatsbyImageData);
-          return <GatsbyImage key={index} alt="Bild Mandat" image={image} />;
-        })}
-      </Slider>
-      <Container>
-        <h1>{data.datoCmsMandat.title}</h1>
-
-     {data.datoCmsMandat.subtitle == "" ? null :        <p className="subtitle">{data.datoCmsMandat.subtitle}</p>}
  
-        <div className="paragraph"
-          dangerouslySetInnerHTML={{
-            __html:
-              data.datoCmsMandat.descriptionNode.childrenMarkdownRemark[0].html,
-          }}
-        ></div>
-      </Container>
-    </MandatPostWrapper>
+  return (
+    <Fragment>
+      <SEO titleTemplate={data.datoCmsMandat.title}/>
+      <MandatPostWrapper>
+        <Slider className="slider" {...settings}>
+          {data.datoCmsMandat.gallery.map((e, index) => {
+            const image = getImage(e.gatsbyImageData);
+            return <GatsbyImage key={index} alt="Bild Mandat" image={image} />;
+          })}
+        </Slider>
+        <Container>
+          <h1>{data.datoCmsMandat.title}</h1>
+       {data.datoCmsMandat.subtitle == "" ? null :        <p className="subtitle">{data.datoCmsMandat.subtitle}</p>}
+          <div className="paragraph"
+            dangerouslySetInnerHTML={{
+              __html:
+                data.datoCmsMandat.descriptionNode.childrenMarkdownRemark[0].html,
+            }}
+          ></div>
+        </Container>
+      </MandatPostWrapper>
+    </Fragment>
   );
 };
 

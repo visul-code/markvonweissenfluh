@@ -1,7 +1,8 @@
 import { graphql } from "gatsby";
-import React from "react";
+import React, {Fragment} from "react";
 import styled from "styled-components";
 import Container from "../components/Container";
+import SEO from "../components/seo";
 import { mediaQueries } from "../utils/MediaQuerie";
 
 const PartnerWrapper = styled.div`
@@ -31,28 +32,31 @@ const PartnerWrapper = styled.div`
 const Partner = ({ data }) => {
   console.log(data);
   return (
-    <PartnerWrapper>
-      <Container>
-        <h1>Partner</h1>
-        <p className="subtitle">{data.datoCmsPartner.subtitle}</p>
+<Fragment>
 
-        <div className="partner-wrapper">
-          {data.datoCmsPartner.partner.map((e, index) => {
-            return (
-              <div key={index}>
-                <h2>{e.title}</h2>
-                <div
-                  className="content"
-                  dangerouslySetInnerHTML={{
-                    __html: e.descriptionNode.childMarkdownRemark.html,
-                  }}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </Container>
-    </PartnerWrapper>
+  <SEO titleTemplate="Partner"/>
+  <PartnerWrapper>
+    <Container>
+      <h1>Partner</h1>
+      <p className="subtitle">{data.datoCmsPartner.subtitle}</p>
+      <div className="partner-wrapper">
+        {data.datoCmsPartner.partner.map((e, index) => {
+          return (
+            <div key={index}>
+              <h2>{e.title}</h2>
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{
+                  __html: e.descriptionNode.childMarkdownRemark.html,
+                }}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </Container>
+  </PartnerWrapper>
+</Fragment>
   );
 };
 

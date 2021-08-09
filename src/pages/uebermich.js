@@ -1,8 +1,9 @@
 import { graphql } from "gatsby";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
-import React from "react";
+import React, {Fragment} from "react";
 import styled from "styled-components";
 import Container from "../components/Container";
+import SEO from "../components/seo";
 import { mediaQueries } from "../utils/MediaQuerie";
 
 const AboutWrapper = styled.div`
@@ -56,39 +57,40 @@ const About = ({ data: { portrait, quotes } }) => {
   const image = getImage(portrait.portrait);
   console.log(quotes);
   return (
-    <AboutWrapper>
-      <Container>
-        <h1>Mark W. von Weissenfluh</h1>
-
-        <div className="portrait-wrapper">
-          <GatsbyImage
-            className="image"
-            alt={portrait.portrait.alt}
-            image={image}
-          />
-          <div
-            className="text"
-            dangerouslySetInnerHTML={{
-              __html: portrait.portraitTextNode.childMarkdownRemark.html,
-            }}
-          ></div>
-        </div>
-
-        {quotes.aboutQuotes.map((e, index) => {
-          return (
-            <div className="quote-block" key={index}>
-              <h2>{e.title}</h2>
-              <div
-                className="quote-text"
-                dangerouslySetInnerHTML={{
-                  __html: e.textNode.childMarkdownRemark.html,
-                }}
-              ></div>
-            </div>
-          );
-        })}
-      </Container>
-    </AboutWrapper>
+    <Fragment>
+      <SEO titleTemplate="Über mich"/>
+      <AboutWrapper>
+        <Container>
+          <h1>Mark W. von Weissenfluh</h1>
+          <div className="portrait-wrapper">
+            <GatsbyImage
+              className="image"
+              alt="Portrait Image"
+              image={image}
+            />
+            <div
+              className="text"
+              dangerouslySetInnerHTML={{
+                __html: portrait.portraitTextNode.childMarkdownRemark.html,
+              }}
+            ></div>
+          </div>
+          {quotes.aboutQuotes.map((e, index) => {
+            return (
+              <div className="quote-block" key={index}>
+                <h2>{e.title}</h2>
+                <div
+                  className="quote-text"
+                  dangerouslySetInnerHTML={{
+                    __html: e.textNode.childMarkdownRemark.html,
+                  }}
+                ></div>
+              </div>
+            );
+          })}
+        </Container>
+      </AboutWrapper>
+    </Fragment>
   );
 };
 

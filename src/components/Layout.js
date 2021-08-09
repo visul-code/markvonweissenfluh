@@ -15,7 +15,7 @@ margin: 120px 0;
 `;
 
 const Layout = ({ children, location }) => {
-  console.log(location);
+
   return (
     <SiteRoot id="top">
       <Helmet

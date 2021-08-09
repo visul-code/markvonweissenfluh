@@ -1,9 +1,10 @@
 import { graphql, Link } from "gatsby";
-import React from "react";
+import React, {Fragment} from "react";
 import styled from "styled-components";
 import Container from "../components/Container";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { mediaQueries } from "../utils/MediaQuerie";
+import SEO from "../components/seo";
 const MandatWrapper = styled.div`
   section {
     flex-direction: column;
@@ -26,27 +27,29 @@ const Mandate = ({ data }) => {
   console.log(data);
 
   return (
-    <MandatWrapper>
-      <Container>
-        <h1>Mandate</h1>
-        <p className="subtitle">{data.datoCmsMandate.subtitle}</p>
-
-        <div className="overview-wrapper">
-          {data.datoCmsMandate.mandat.map((e, index) => {
-            const image = getImage(e.previewImage.gatsbyImageData);
-
-            return (
-              <div key={index}>
-                <Link to={e.slug}>
-                  <GatsbyImage alt={e.previewImage.alt} image={image} />
-                </Link>
-                <p>{e.title}</p>
-              </div>
-            );
-          })}
-        </div>
-      </Container>
-    </MandatWrapper>
+    <Fragment>
+      <SEO titleTemplate="Mandate"/>
+      
+      <MandatWrapper>
+        <Container>
+          <h1>Mandate</h1>
+          <p className="subtitle">{data.datoCmsMandate.subtitle}</p>
+          <div className="overview-wrapper">
+            {data.datoCmsMandate.mandat.map((e, index) => {
+              const image = getImage(e.previewImage.gatsbyImageData);
+              return (
+                <div key={index}>
+                  <Link to={e.slug}>
+                    <GatsbyImage alt="Vorschaubild" image={image} />
+                  </Link>
+                  <p>{e.title}</p>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </MandatWrapper>
+    </Fragment>
   );
 };
 

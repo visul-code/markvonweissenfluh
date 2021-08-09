@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Container from "../components/Container";
 import { graphql } from "gatsby";
+import { Fragment } from "react";
+import SEO from "../components/seo";
 const ContactWrapper = styled.div`
 
 section{
@@ -26,10 +28,13 @@ margin: 5rem 0;
 
 
 const Contact = ({data}) => {
+
   const lat = data.datoCmsKontakt.standort.latitude
   const long = data.datoCmsKontakt.standort.longitude
   console.log(data.datoCmsKontakt.standort.latitude)
   return (
+    <Fragment>
+      <SEO titleTemplate="Kontakt"/>
     <ContactWrapper>
       <Container>
         <h1>Kontakt</h1>
@@ -53,6 +58,7 @@ const Contact = ({data}) => {
         loading="lazy"></iframe>
 {/* <iframe src={`https://maps.google.com/maps?q=${lat}, ${long}&z=15&output=embed`} width="360" height="270" frameborder="0" ></iframe> */}
     </ContactWrapper>
+    </Fragment>
   );
 };
 
