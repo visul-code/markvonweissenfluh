@@ -22,6 +22,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/images/favicon.png`,
+        icon_options: {
+          purpose: `maskable`,
+        },
+      },
+    },
+    {
       resolve: "gatsby-source-datocms",
       options: {
         apiToken: process.env.DATO_CMS_KEY,
@@ -30,10 +39,10 @@ module.exports = {
 
     {
       resolve: "gatsby-plugin-sitemap",
-      /*       options: {
+           options: {
         output: "/",
         resolveSiteUrl: () => siteConfig.siteUrl,
-      }, */
+      }, 
     },
     {
       resolve: "gatsby-plugin-canonical-urls",
