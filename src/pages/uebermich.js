@@ -24,7 +24,7 @@ flex-direction: column;
 `}
 
     .image {
-      margin: 0 3rem;
+   /*    margin: 0 3rem; */
     }
     .text {
       margin: 4rem;
@@ -34,7 +34,10 @@ flex-direction: column;
   .quote-block {
     margin: 4rem 0;
     .quote-text {
-      column-count: 2;
+      font-size: 2rem;
+  font-weight: 300;
+  line-height: 3rem;
+      column-count: 1;
       column-gap: 10rem;
       ${mediaQueries.lessThan("tablet")`
 
