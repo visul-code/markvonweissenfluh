@@ -23,7 +23,7 @@ const NavigationWrapper = styled.nav`
 
   ${mediaQueries.lessThan("tablet")`
   padding: 0 2rem;
-
+  height: 80px;
   
     `}
 

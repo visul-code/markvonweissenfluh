@@ -28,7 +28,7 @@ flex-direction: column;
    /*    margin: 0 3rem; */
     }
     .text {
-      margin: 4rem;
+      margin: 4rem 1rem;
     }
   }
 
